@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	today = new Date();
+	// 메서드 getFullYear() getMonth 0~11 getDate()
+	//		요일 getDay() 0 -> 일 1 -> 월
+	//		Hours() Minutes() Seconds()
+	document.write(today.getFullYear()+"년 "+(today.getMonth()+1)+"월 "+today.getDate()+"일 ");
+	switch(today.getDay()) {
+		case 0:document.write("일요일");break;
+		case 1:document.write("월요일");break;
+		case 2:document.write("화요일");break;
+		case 3:document.write("수요일");break;
+		case 4:document.write("목요일");break;
+		case 5:document.write("금요일");break;
+		case 6:document.write("토요일");break;
+		default: document.write("요일아님"); break;
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>
