@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+  /*  웹브라우저 객체
+	   window - location
+			  - history
+			  - document - image
+						 - form - text,password,textarea
+								- checkbox, radio
+								- select - option
+								- button, submit, reset 
+	   window.멤버변수/속성 opener 새창을 open해준 원래창
+	   window.메서드() open() close()
+  */
+  function fun1() {
+	  window.open("test1.html","",
+			  "width=400,height=200,top=200,left=200,"
+			  +"scrollbars=yes,resizable=yes,toolbar=yes");
+  }
+  
+  // test3.html페이지를 새로운 창 열기 창닫기 단추
+</script>
+</head>
+<body>
+<input type="button" value="창열기" onclick="fun1()">
+<input type="button" value="창닫기" onclick="window.close()">
+</body>
+</html>

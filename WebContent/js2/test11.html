@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+		window.document.폼이름.체크박스이름[0].속성
+		window.document.폼이름.체크박스이름[0].메서드()
+		속성 :  checked => true/false name type value
+		메서드 : blur() focus() click()
+	*/
+	function fun1() {
+		alert(document.fr.ch[0].name);
+		alert(document.fr.ch[0].type);
+		alert(document.fr.ch[0].value);
+		alert(document.fr.ch[0].checked);
+	}
+	function fun2() {
+		if(document.fr.ch[0].checked==false 
+				&& document.fr.ch[1].checked==false 
+				&& document.fr.ch[2].checked==false ) {
+			alert("체크하세요");
+			// ch[0] 커서 깜빡
+			document.fr.ch[0].focus();
+			return;
+		}
+		document.fr.submit();
+	}
+	function fun3() {
+		if(document.fr.ra[0].checked==false 
+				&& document.fr.ra[1].checked==false 
+				&& document.fr.ra[2].checked==false ) {
+			alert("라디오박스 체크하세요");
+			// ch[0] 커서 깜빡
+			document.fr.ra[0].focus();
+			return;
+		}
+		document.fr.submit();
+	}
+</script>
+</head>
+<body>
+<form action="a.jsp" method="post" name="fr">
+<input type="checkbox" name="ch" value="java">java
+<input type="checkbox" name="ch" value="jsp">jsp
+<input type="checkbox" name="ch" value="html">html
+<input type="button" value="체크박스정보" onclick="fun1()">
+<input type="button" value="체크박스전송" onclick="fun2()">
+<input type="radio" name="ra" value="java">java
+<input type="radio" name="ra" value="jsp">jsp
+<input type="radio" name="ra" value="html">html
+<input type="button" value="라디오전송" onclick="fun3()">
+
+</form>
+</body>
+</html>

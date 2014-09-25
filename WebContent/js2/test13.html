@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function check() {
+		// 이름체크
+		if(document.fr.name.value=="") {
+			alert("이름을 입력하세요");
+			document.fr.name.focus();
+			return;
+		}
+		// 아이디체크
+		if(document.fr.id.value=="") {
+			alert("아이디를 입력하세요");
+			document.fr.id.focus();
+			return;
+		}
+		// 비밀번호체크
+		if(document.fr.passwd.value=="") {
+			alert("비밀번호를 입력하세요");
+			document.fr.passwd.focus();
+			return;
+		}
+		if(document.fr.repasswd.value=="") {
+			alert("비밀번호확인란에 값을 입력하세요");
+			document.fr.repasswd.focus();
+			return;
+		}
+		if(document.fr.passwd.value != document.fr.repasswd.value) {
+			alert("비밀번호와 비밀번호확인란이 다릅니다.");
+			document.fr.passwd.value="";
+			document.fr.repasswd.value="";
+			document.fr.passwd.focus();
+			return;
+		}
+		// 주민번호체크
+		if(document.fr.jumin1.value=="") {
+			alert("주민번호 앞자리를 입력하세요");
+			document.fr.jumin1.focus();
+			return;
+		}
+		if(document.fr.jumin2.value=="") {
+			alert("주민번호 뒷자리를 입력하세요");
+			document.fr.jumin2.focus();
+			return;
+		}
+		// 성별체크
+		if(document.fr.gender[0].checked==false && document.fr.gender[1].checked==false) {
+			alert("성별을 체크하세요");
+			document.fr.gender(0).focus();
+			return;
+		}
+		// 취미체크
+		if(document.fr.hobby[0].checked==false && document.fr.hobby[1].checked==false && document.fr.hobby[2].checked==false) {
+			alert("취미를 체크하세요");
+			document.fr.hobby(0).focus();
+			return;
+		}
+		// 직업체크
+		if(document.fr.job.selectedIndex == 0) {
+			alert("직업을 선택하세요");
+			document.fr.job[0].focus();
+			return;
+		}
+		if(document.fr.ta.value=="") {
+			alert("가입동기를 입력해주세요");
+			document.fr.ta.focus();
+			return;
+		}
+		document.fr.submit();
+	}
+</script>
+</head>
+<body>
+<form action="a.jsp" method="post" name="fr">
+이름:<input type="text" name="name"><br>
+id:<input type="text" name="id"><br>
+비밀번호:<input type="password" name="passwd"><br>
+비밀번호확인:<input type="password" name="repasswd"><br>
+주민번호:<input type="text" name="jumin1">
+-<input type="text" name="jumin2"><br>
+성별:<input type="radio" value="남" name="gender">남
+<input type="radio" value="여" name="gender">여<br>
+취미:<input type="checkbox" name="hobby" value="여행">여행
+<input type="checkbox" name="hobby" value="게임">게임
+<input type="checkbox" name="hobby" value="독서">독서<br>
+직업:<select name="job">
+		<option value="">직업을 선택하세요</option>
+		<option value="학생">학생</option>
+		<option value="회사원">회사원</option>
+		<option value="기타">기타</option>
+	</select><br>
+가입동기:<textarea rows="10" cols="50" name="ta"></textarea><br>
+<input type="button" value="회원가입" onclick="check()">
+</form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+		window.document.폼이름.텍스트상자이름.속성
+		window.document.폼이름.텍스트상자이름.메서드()
+		속성 : type name value
+		메서드 : focus() blur() select()
+	*/
+	function fun1() {
+		alert(document.fr.txt.type);
+		alert(document.fr.txt.name);
+		alert(document.fr.txt.value);
+		//document.fr.txt.focus();
+		document.fr.txt.select();
+	}
+	function fun2() {
+		// 조건 txt 비어있으면 입력하세요 커서 깜박
+		//	   value "" 공백이면 / value.length <1
+		//		   비어있지 않으면 submit 전송
+		if(document.fr.txt.value == "") {
+			alert("텍스트 상자 비어있음");
+			document.fr.txt.focus();
+			return;
+		}
+		document.fr.submit();
+	}
+</script>
+</head>
+<body>
+<form action="a.jsp" method="post" name="fr">
+	<input type="text" name="txt">
+	<input type="button" value="텍스트정보" onclick="fun1()">
+	<input type="button" value="전송" onclick="fun2()">
+</form>
+</body>
+</html>

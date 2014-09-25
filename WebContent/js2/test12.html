@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+		window.document.폼이름.select이름.속성
+		window.document.폼이름.select이름.메서드()
+		속성 : name type length options selectedIndex
+		메서드 : blur() focus()
+		options 속성 : selected => false/true text value
+	*/
+	function fun1() {
+		alert(document.fr.se.name);
+		alert(document.fr.se.length);
+		alert(document.fr.se.selectedIndex);
+		alert(document.fr.se.options[0].selected);
+		alert(document.fr.se.options[0].text);
+		alert(document.fr.se.options[0].value);
+	}
+	function fun2() {
+		if(document.fr.se.selectedIndex == 0) {
+		// if(document.fr.se.options[0].selected == true) {
+			// 목록을 선택하세요
+			alert("목록을 선택하세요");
+			// 포커스 깜박
+			document.fr.se.focus();
+			return;
+		}
+		document.fr.submit();
+	}
+</script>
+</head>
+<body>
+<form action="a.jsp" method="post" name="fr">
+<select name="se">
+	<option value="">선택하세요</option>
+	<option value="java">tjava</option>
+	<option value="jsp">tjsp</option>
+	<option value="html">thtml</option>
+</select>
+<input type="button" value="select정보" onclick="fun1()">
+<input type="button" value="전송" onclick="fun2()">
+</form>
+</body>
+</html>

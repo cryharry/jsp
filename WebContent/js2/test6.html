@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+		window.document.속성 .title .bgColor .fgColor .linkColor
+								   .alinkColor .vlinkColor
+	    window.document.메서드() open() close() write() writeln()
+	*/
+	function bgfun(color) {
+		document.bgColor = color;
+	}
+</script>
+</head>
+<body>
+<input type="button" value="문서제목" onclick="alert(document.title)">
+<input type="button" value="문서제목바꾸기" onclick="document.title='titlename'">
+<input type="button" value="배경색바꾸기" onclick="document.bgColor='yellow'">
+
+<input type="radio" name="bg" value="green" onclick="bgfun('green')">green
+<input type="radio" name="bg" value="blue" onclick="bgfun('blue')">blue
+<input type="radio" name="bg"value="pink" onclick="bgfun('pink')">pink
+</body>
+</html>
