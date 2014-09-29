@@ -17,6 +17,12 @@
 			document.fr.id.focus();
 			return;
 		}
+		if(document.fr.id.value.length<4 || document.fr.id.value.length>7) { //4~7길이
+			alert("아이디는 4~7자리입니다.정확히 입력하세요");
+			document.fr.id.value=""
+			document.fr.id.focus();
+			return;
+		}
 		// 비밀번호체크
 		if(document.fr.passwd.value=="") {
 			alert("비밀번호를 입력하세요");
@@ -41,8 +47,18 @@
 			document.fr.jumin1.focus();
 			return;
 		}
+		if(document.fr.jumin1.value.length!=6) {
+			alert("주민번호 앞자리를 6자리입니다. 정확히 입력하세요");
+			document.fr.jumin1.focus();
+			return;
+		}
 		if(document.fr.jumin2.value=="") {
 			alert("주민번호 뒷자리를 입력하세요");
+			document.fr.jumin2.focus();
+			return;
+		}
+		if(document.fr.jumin2.value.length!=7) {
+			alert("주민번호 뒷자리의 수는  7자리입니다. 정확히 입력하세요");
 			document.fr.jumin2.focus();
 			return;
 		}
@@ -71,10 +87,93 @@
 		}
 		document.fr.submit();
 	}
+	function check2() {
+		// 이름체크
+		if(document.fr.name.value=="") {
+			alert("이름을 입력하세요");
+			document.fr.name.focus();
+			return false;
+		}
+		// 아이디체크
+		if(document.fr.id.value=="") {
+			alert("아이디를 입력하세요");
+			document.fr.id.focus();
+			return false;
+		}
+		if(document.fr.id.value.length<4 || document.fr.id.value.length>7) { //4~7길이
+			alert("아이디는 4~7자리입니다.정확히 입력하세요");
+			document.fr.id.value=""
+			document.fr.id.focus();
+			return false;
+		}
+		// 비밀번호체크
+		if(document.fr.passwd.value=="") {
+			alert("비밀번호를 입력하세요");
+			document.fr.passwd.focus();
+			return false;
+		}
+		if(document.fr.repasswd.value=="") {
+			alert("비밀번호확인란에 값을 입력하세요");
+			document.fr.repasswd.focus();
+			return false;
+		}
+		if(document.fr.passwd.value != document.fr.repasswd.value) {
+			alert("비밀번호와 비밀번호확인란이 다릅니다.");
+			document.fr.passwd.value="";
+			document.fr.repasswd.value="";
+			document.fr.passwd.focus();
+			return false;
+		}
+		// 주민번호체크
+		if(document.fr.jumin1.value=="") {
+			alert("주민번호 앞자리를 입력하세요");
+			document.fr.jumin1.focus();
+			return false;
+		}
+		if(document.fr.jumin1.value.length!=6) {
+			alert("주민번호 앞자리를 6자리입니다. 정확히 입력하세요");
+			document.fr.jumin1.focus();
+			return false;
+		}
+		if(document.fr.jumin2.value=="") {
+			alert("주민번호 뒷자리를 입력하세요");
+			document.fr.jumin2.focus();
+			return false;
+		}
+		if(document.fr.jumin2.value.length!=7) {
+			alert("주민번호 뒷자리의 수는  7자리입니다. 정확히 입력하세요");
+			document.fr.jumin2.focus();
+			return false;
+		}
+		// 성별체크
+		if(document.fr.gender[0].checked==false && document.fr.gender[1].checked==false) {
+			alert("성별을 체크하세요");
+			document.fr.gender(0).focus();
+			return false;
+		}
+		// 취미체크
+		if(document.fr.hobby[0].checked==false && document.fr.hobby[1].checked==false && document.fr.hobby[2].checked==false) {
+			alert("취미를 체크하세요");
+			document.fr.hobby(0).focus();
+			return false;
+		}
+		// 직업체크
+		if(document.fr.job.selectedIndex == 0) {
+			alert("직업을 선택하세요");
+			document.fr.job[0].focus();
+			return false;
+		}
+		if(document.fr.ta.value=="") {
+			alert("가입동기를 입력해주세요");
+			document.fr.ta.focus();
+			return false;
+		}
+		//document.fr.submit();
+	}
 </script>
 </head>
 <body>
-<form action="a.jsp" method="post" name="fr">
+<form action="a.jsp" method="post" name="fr" onsubmit="return check2()">
 이름:<input type="text" name="name"><br>
 id:<input type="text" name="id"><br>
 비밀번호:<input type="password" name="passwd"><br>
@@ -94,6 +193,7 @@ id:<input type="text" name="id"><br>
 	</select><br>
 가입동기:<textarea rows="10" cols="50" name="ta"></textarea><br>
 <input type="button" value="회원가입" onclick="check()">
+<input type="submit" value="전송">
 </form>
 </body>
 </html>
